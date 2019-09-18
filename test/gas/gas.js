@@ -14,7 +14,7 @@ const SEED_RANGE = 1000000;
 const RSCLEAR_REFUND = 15000;
 const RSCLEAR_REFUND_FOR_RESETTING_DIRTY_SLOT_TO_ZERO = 19800;
 const RSELFDESTRUCT_REFUND = 24000;
-const HARDFORKS = ["petersburg", "constantinople", "byzantium"];
+const HARDFORKS = ["petersburg"] || ["petersburg", "constantinople", "byzantium"];
 
 describe("Gas", function() {
   HARDFORKS.forEach((hardfork) => {
@@ -194,7 +194,7 @@ describe("Gas", function() {
                   });
               });
             await Promise.all(promises);
-          }).timeout(3000);
+          }).timeout(5000);
 
           it("Should estimate gas perfectly with EIP150 - CREATE2", async() => {
             const { accounts, instance, web3 } = Create2;
